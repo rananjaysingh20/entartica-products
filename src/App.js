@@ -1,0 +1,42 @@
+import "./App.css";
+import Card from "./components/card";
+import ShoppingCart from "./components/shoppingCart";
+import data from "./data.json";
+import { useState } from "react";
+
+const App = () => {
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (product, quantity) => {
+    let existingProductIndex = cart.findIndex((prod) => prod === product);
+    if (existingProductIndex !== -1) {
+      let updatedCart = [...cart];
+      updatedCart[existingProductIndex].quantity += quantity;
+      setCart(updatedCart);
+    } else {
+      product.quantity = quantity;
+      setCart([...cart, product]);
+    }
+  };
+
+  const removeFromCart = (productIndex) => {
+    setCart(cart.filter((_, idx) => idx !== productIndex));
+  };
+
+  return (
+    <div className="App">
+      <div className="main-container">
+        <div className="card-container">
+          {data.map((item, key) => {
+            return <Card item={item} addToCart={addToCart} key={key} />;
+          })}
+        </div>
+        <div className="shopping-cart-container">
+          <ShoppingCart cart={cart} removeFromCart={removeFromCart} />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;
