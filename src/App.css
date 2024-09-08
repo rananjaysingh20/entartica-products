@@ -26,3 +26,76 @@
   justify-content: center;
   align-items: center;
 }
+
+.mobileCartFixed {
+  display: none;
+}
+
+@media only screen and (max-width: 480px) {
+  .App {
+    flex-direction: column;
+  }
+
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+
+  .card-container {
+    justify-content: center;
+  }
+
+  .shopping-cart-container {
+    opacity: 0;
+    transition: opacity 1s ease-in-out, bottom 1s ease-in-out;
+    position: fixed;
+    background-color: white;
+    bottom: -100%;
+    width: 370px;
+    height: 450px;
+  }
+
+  .mobileCartFixed {
+    width: 100%;
+    height: 40px;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    /* Ensures it stays on top of other elements */
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .showMobileCart {
+    display: flex;
+    position: fixed;
+    z-index: 998;
+    background-color: white;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    bottom: 0%;
+  }
+
+  .showCartOverLay::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent overlay */
+    z-index: -1;
+    /* Ensure the overlay is behind the content */
+    opacity: 1;
+    /* Hidden by default */
+    z-index: 998;
+  }
+}

@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const App = () => {
   const [cart, setCart] = useState([]);
+  const [showMobileCart, setShowMobileCart] = useState(false);
 
   const addToCart = (product, quantity) => {
     let existingProductIndex = cart.findIndex((prod) => prod === product);
@@ -24,17 +25,18 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className={`App ${showMobileCart ? "showCartOverLay" : ""}`}>
       <div className="main-container">
         <div className="card-container">
           {data.map((item, key) => {
             return <Card item={item} addToCart={addToCart} key={key} />;
           })}
         </div>
-        <div className="shopping-cart-container">
+        <div className={`shopping-cart-container ${showMobileCart ? "showMobileCart" : ""}`}>
           <ShoppingCart cart={cart} removeFromCart={removeFromCart} />
         </div>
       </div>
+      <div className="mobileCartFixed" onClick={() => setShowMobileCart(!showMobileCart)}>Shopping Cart</div>
     </div>
   );
 };
