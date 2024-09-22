@@ -15,9 +15,6 @@
 .product-card-container:not(.removeHover):hover {
     transform: scale(1.2);
     z-index: 10;
-    .card-description {
-        display: block;
-    }
 }
 
 .removeHover {
@@ -32,15 +29,15 @@
     transition: all 0.8s ease-in-out;
     background-color: white;
     z-index: 100;
-    border: 1px solid black;
 }
 
 .expandedCard {
-    height: 40vh !important;
+    height: 60vh !important;
     width: 50vw !important;
     transition: all 1.2s ease-in-out;
     position: absolute;
-    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
     z-index: 101;
     background-color: white;
     transform-origin: center;
@@ -66,20 +63,29 @@
     height: 200px;
     overflow: hidden;
     cursor: pointer;
-
-    .card-description {
-        display: none;
-    }
 }
 
 .image-container {
-    height: 30%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+}
+
+.expanded-image-container {
+    width: 350px;
+    height: 250px;
+}
+
+.image-container::-webkit-scrollbar {
+    height: 8px;
+    /* Scrollbar height */
 }
 
 .card-image {
+    object-fit: contain;
+    height: 100%;
     width: 100%;
-    height: 80%;
-    object-fit: cover;
 }
 
 .controls-container {
@@ -91,11 +97,14 @@
 }
 
 .card-title {
-    padding: 10px;
+    padding: 5px;
     text-align: center;
-    font-size: 1.1rem;
     background-color: #333;
     color: white;
+    height: 30px;
+    font-size: 14px;
+    margin: 5px 0px;
+    border-radius: 10px;
 }
 
 .quantity-controls {
@@ -123,4 +132,53 @@
 .quantity-controls button:disabled {
     background-color: #ddd;
     cursor: not-allowed;
+}
+
+.expand-btn {
+    background-color: #000000;
+    /* Black background */
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.expand-btn-container {
+    width: 100%;
+    margin-top: 2px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.incSmallCardSize {
+    height: 60%;
+    width: 100%;
+}
+
+.card-description {
+    width: 30%;
+    text-align: left;
+    padding: 20px 0px;
+}
+
+.img-desc-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.package-desc {
+    display: flex;
+    flex-direction: row;
+}
+
+.package-add-to-cart {
+    display: flex;
+    flex-direction: column;
 }

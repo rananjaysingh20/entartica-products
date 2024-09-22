@@ -1,7 +1,9 @@
 import "../styles/shoppingCart.css"; // Import the CSS file
 
 const ShoppingCart = ({ cart, removeFromCart }) => {
-  const total = cart.reduce((sum, product) => sum + (product.price * product.quantity), 0);
+  const originalTotal = cart.reduce((sum, product) => sum + (product.price.original || product.price.original_price * product.quantity), 0);
+  const total = cart.reduce((sum, product) => sum + (product.price.discounted || product.price.discounted_price * product.quantity), 0);
+  const discount = originalTotal - total;
 
   return (
     <div className="shopping-cart">
@@ -13,9 +15,10 @@ const ShoppingCart = ({ cart, removeFromCart }) => {
           <div className="cart-items">
             {cart.map((product, index) => (
               <div key={index} className="cart-item">
-                <span>{product.title}</span>
+                <span>{product.mainTitle}</span>
+                <span>{product.packageName}</span>
                 <span>{product.quantity}</span>
-                <span>Rs. {product.price}</span>
+                <span>Rs. <strike>{product.price.original || product.price.original_price}</strike>  {product.price.discounted || product.price.discounted_price}</span>
                 <button
                   className="removeBtn"
                   onClick={() => removeFromCart(index)}
@@ -45,6 +48,8 @@ const ShoppingCart = ({ cart, removeFromCart }) => {
               </div>
             ))}
           </div>
+          <h3>SubTotal: Rs. {originalTotal}</h3>
+          <h3>Discount: Rs. {discount}</h3>
           <h3>Total: Rs. {total}</h3>
         </div>
       )}

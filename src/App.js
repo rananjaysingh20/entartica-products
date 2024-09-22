@@ -8,7 +8,7 @@ const App = () => {
   const [cart, setCart] = useState([]);
   const [showMobileCart, setShowMobileCart] = useState(false);
 
-  const addToCart = (product, quantity) => {
+  const addToCart = (product, quantity, title) => {
     let existingProductIndex = cart.findIndex((prod) => prod === product);
     if (existingProductIndex !== -1) {
       let updatedCart = [...cart];
@@ -16,6 +16,7 @@ const App = () => {
       setCart(updatedCart);
     } else {
       product.quantity = quantity;
+      product.mainTitle = title;
       setCart([...cart, product]);
     }
   };
