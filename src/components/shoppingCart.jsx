@@ -18,7 +18,13 @@ const ShoppingCart = ({ cart, removeFromCart }) => {
                 <span>{product.mainTitle}</span>
                 <span>{product.packageName}</span>
                 <span>{product.quantity}</span>
-                <span>Rs. <strike>{product.price.original || product.price.original_price}</strike>  {product.price.discounted || product.price.discounted_price}</span>
+                <span>
+                  Rs.{" "}
+                  <strike>
+                    {product.price.original || product.price.original_price}
+                  </strike>{" "}
+                  {product.price.discounted || product.price.discounted_price}
+                </span>
                 <button
                   className="removeBtn"
                   onClick={() => removeFromCart(index)}
@@ -48,9 +54,20 @@ const ShoppingCart = ({ cart, removeFromCart }) => {
               </div>
             ))}
           </div>
-          <h3>SubTotal: Rs. {originalTotal}</h3>
-          <h3>Discount: Rs. {discount}</h3>
-          <h3>Total: Rs. {total}</h3>
+          <div className="cart-footer">
+            <div className="pricing-container">
+              <div>SubTotal:</div>
+              <div>Rs. {originalTotal}</div>
+            </div>
+            <div className="pricing-container">
+              <div>Discount:</div>
+              <div>Rs. {discount}</div>
+            </div>
+            <div className="pricing-container">
+              <div>Total:</div>
+              <div>Rs. {total}</div>
+            </div>
+          </div>
         </div>
       )}
     </div>

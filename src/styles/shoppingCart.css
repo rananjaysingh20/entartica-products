@@ -34,6 +34,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 12px;
 }
 
 .removeBtn {
@@ -43,4 +44,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.cart-footer {
+    border-top: 1px solid;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pricing-container {
+    display: flex;
+    justify-content: space-between;
 }
