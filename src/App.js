@@ -9,7 +9,6 @@ const App = () => {
   const [showMobileCart, setShowMobileCart] = useState(false);
 
   const addToCart = (product, quantity, title) => {
-    console.log(product, quantity, title);
     let existingProductIndex = cart.findIndex((prod) => prod === product);
     if (existingProductIndex !== -1) {
       let updatedCart = [...cart];

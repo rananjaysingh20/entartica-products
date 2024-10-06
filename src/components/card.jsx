@@ -1,7 +1,33 @@
-import React, { useState } from "react";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion, LayoutGroup } from "framer-motion";
-import "../styles/card.css";
 import { ImageCarousel } from "./imageCarousel";
+import "../styles/card.css";
+import { AddToCart } from "./addToCart";
+
+const Item = ({
+  title,
+  index,
+  selectedId,
+  setSelectedId,
+  image,
+  ...props
+}) => (
+  <motion.div
+    className="item"
+    key={index}
+    layoutId={index + 1}
+    whileHover={{ scale: 1.1 }}
+    {...props}
+  >
+    <motion.div className="tile-title">{title}</motion.div>
+    <motion.img src={image} alt="first-image" className="tile-image"/>
+    <motion.div className="expand-btn-container">
+      <motion.button className="expand-btn" onClick={() => setSelectedId(index + 1)}>
+        &#x25BC;
+      </motion.button>
+    </motion.div>
+  </motion.div>
+);
 
 const Card = ({ data, addToCart }) => {
   const [quantity, setQuantity] = useState(1);
@@ -15,90 +41,44 @@ const Card = ({ data, addToCart }) => {
     }
   };
 
-  const Item = ({ title, subtitle, index, setSelectedId, ...props }) => (
-    <motion.div
-      className="item"
-      key={title}
-      layoutId={index + 1}
-      whileHover={{ scale: 1.1 }}
-      {...props}
-    >
-      <div className="tile-title">{title}</div>
-      <img className="tile-image" src={props.img[0]} alt="first-img" />
-      <div className="expand-btn-container">
-        <button className="expand-btn" onClick={() => setSelectedId(index + 1)}>
-          &#x25BC;
-        </button>
-      </div>
-    </motion.div>
-  );
   const [selectedId, setSelectedId] = useState(null);
+
+  const items = useMemo(() => data, [data]);
 
   return (
     <>
       <LayoutGroup>
         <ul className="gallery">
-          {data.map((item, index) => (
+          {items.map((item, index) => (
             <Item
               key={item.index}
               {...item}
+              image={item.img[0]}
               index={index}
               setSelectedId={setSelectedId}
+              selectedId={selectedId}
             />
           ))}
         </ul>
-        <AnimatePresence>
+        <AnimatePresence mode="sync">
           {selectedId && (
             <motion.div className="modalContainer" key="modal">
               <motion.div className="modal" layoutId={selectedId}>
-                <h2>{data[selectedId - 1].title}</h2>
-                <div>{data[selectedId - 1].amenities.description}</div>
+                <h2>{items[selectedId - 1].title}</h2>
+                <div>{items[selectedId - 1].amenities.description}</div>
                 <div className="carousel-container">
-                  <ImageCarousel
-                    images={data[selectedId - 1].img}
-                  ></ImageCarousel>
+                  <ImageCarousel images={items[selectedId - 1].img} />
                 </div>
-                {/* <div className="package-container">
-                  {data[selectedId - 1].packages.map((productPackage) => {
-                    return (
-                      <div className="package">
-                        <div>{productPackage.packageName}</div>
-                        <div className="package-desc">
-                          <div>{productPackage.description}</div>
-                          <div className="package-add-to-cart">
-                            <div className="controls-container">
-                              <span>
-                                Rs.{" "}
-                                <strike>
-                                  {productPackage.price.original ||
-                                    productPackage.price.original_price}
-                                </strike>{" "}
-                                {productPackage.price.discounted ||
-                                  productPackage.price.discounted_price}
-                              </span>
-                              <div className="quantity-controls">
-                                <button onClick={() => decreaseQuantity}>-</button>
-                                <span>{quantity}</span>
-                                <button onClick={() => increaseQuantity}>+</button>
-                              </div>
-                            </div>
-                            <button
-                              onClick={() =>
-                                addToCart(
-                                  productPackage,
-                                  quantity,
-                                  data[selectedId - 1].title
-                                )
-                              }
-                            >
-                              Add to Cart
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div> */}
+                <div>
+                  <AddToCart
+                    quantity={quantity}
+                    data={data}
+                    addToCart={addToCart}
+                    selectedId={selectedId}
+                    increaseQuantity={increaseQuantity}
+                    decreaseQuantity={decreaseQuantity}
+                  />
+                </div>
                 <div className="expand-btn-container">
                   <motion.button
                     className="expand-btn"
