@@ -136,7 +136,6 @@
 
 .expand-btn {
     background-color: #000000;
-    /* Black background */
     color: #ffffff;
     border: none;
     border-radius: 50%;
@@ -181,4 +180,80 @@
 .package-add-to-cart {
     display: flex;
     flex-direction: column;
+}
+
+
+.gallery {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    padding: 30px;
+}
+
+.item {
+    padding: 10px;
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin: 10px;
+    width: 220px;
+    height: 220px;
+}
+
+.modal {
+    flex: 1 1 auto;
+    z-index: 9999;
+    background-color: white;
+    width: 65vw;
+    height: 80vh;
+    position: absolute;
+    top: 50;
+    left: 50;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.carousel-container {
+    background: #151515;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin: 10px 0px;
+}
+
+.tile-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.expand-btn-container {
+    float: right;
+}
+
+.tile-title {
+    display: block;
+    font-size: 15px;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+.modalContainer {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }

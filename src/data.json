@@ -192,5 +192,121 @@
         "Enter and exit at specified points"
       ]
     }
+  },
+  {
+    "title": "Adventure lagoon + H20 Play Park",
+    "img": [
+      "https://res.cloudinary.com/simplotel/image/upload/w_5000,h_2812/x_0,y_0,w_5000,h_2812,r_0,c_crop,q_60,fl_progressive/w_900,f_auto,c_fit/entartica-seaworld-raipur-chattisgarh/Adventure_lagoon_+_H20_Play_Park-01_(1)",
+      "https://res.cloudinary.com/simplotel/image/upload/w_5000,h_2812/x_0,y_0,w_5000,h_2812,r_0,c_crop,q_60,fl_progressive/w_900,f_auto,c_fit/entartica-seaworld-raipur-chattisgarh/TRAMPOLINE-PARK-01_sztcib",
+      "https://res.cloudinary.com/simplotel/image/upload/w_5000,h_2812/x_0,y_0,w_5000,h_2812,r_0,c_crop,q_60,fl_progressive/w_900,f_auto,c_fit/entartica-seaworld-raipur-chattisgarh/AQUA_CYCLE-01_sc5v1a",
+      "https://res.cloudinary.com/simplotel/image/upload/w_5000,h_2812/x_0,y_0,w_5000,h_2812,r_0,c_crop,q_60,fl_progressive/w_900,f_auto,c_fit/entartica-seaworld-raipur-chattisgarh/KIDS_PEDAL_BOAT-01_xge6yv",
+      "https://res.cloudinary.com/simplotel/image/upload/w_5000,h_2812/x_0,y_0,w_5000,h_2812,r_0,c_crop,q_60,fl_progressive/w_900,f_auto,c_fit/entartica-seaworld-raipur-chattisgarh/BUMPER_BOAT-01-01_vrwnim",
+      "https://res.cloudinary.com/simplotel/image/upload/w_5000,h_2812/x_0,y_0,w_5000,h_2812,r_0,c_crop,q_60,fl_progressive/w_900,f_auto,c_fit/entartica-seaworld-raipur-chattisgarh/AQUA-ROLLER-01_qpawn7"
+    ],
+    "packages": [
+      {
+        "packageName": "Silver Package",
+        "activities": {
+          "Adventure Lagoon": [
+            "Three Hour Access",
+            "Obstacle Area",
+            "Inflatable Water Slides",
+            "Swings",
+            "Floating Trampolines"
+          ],
+          "H20 Play Park Access": {
+            "Adults": [
+              "Three Hours Adventure Lagoon",
+              "Kayak",
+              "Aqua Cycle",
+              "Water Bike"
+            ],
+            "Kids": [
+              "Three Hours Adventure Lagoon",
+              "Kids Bumper Boat",
+              "Zorbing Ball",
+              "Kids Paddle Boat"
+            ]
+          }
+        },
+        "notes": "Student need to present their college or school ID proof compulsory at the reservation counter.",
+        "description": "Get ready for a fun-filled day of water adventures! Your pass includes both Adventure Lagoon and H20 Play Park Rides at Entartica Sea World, Mayfair, Raipur.",
+        "price": {
+          "original": 2205,
+          "discounted": 1103,
+          "currency": "INR",
+          "inclusiveOfTaxes": true
+        }
+      },
+      {
+        "packageName": "Gold Package",
+        "inclusions": [
+          "A complimentary food voucher worth Rs. 180 (Redeemable at the food court)",
+          "Free Pair of Costume"
+        ],
+        "activities": {
+          "Adventure Lagoon": "03 Hours Access",
+          "H2O Play Park": "Full Day Access"
+        },
+        "description": "Get ready for a fun-filled day of water adventures! Your pass includes both Adventure Lagoon and H20 Play Park Rides at Entartica Sea World, Mayfair, Raipur.",
+        "price": {
+          "original": 2205,
+          "discounted": 1500,
+          "currency": "INR",
+          "inclusiveOfTaxes": true
+        }
+      }
+    ],
+    "amenities": {
+      "description": "Get ready for an exciting day of water adventures! Our pass includes both Adventure Lagoon and H20 Play Park rides. Whether you're an adult seeking thrills or a kid ready for water fun, we've got you covered.",
+      "amenities": {
+        "Adventure Lagoon Games": [
+          "Floating Treasure Hunt",
+          "Adventure Lagoon Race",
+          "Target Shooting",
+          "Water Bucket Relay",
+          "Slides",
+          "Rassikhech",
+          "Obstacle Games"
+        ],
+        "H20 Play Park Rides": {
+          "Adults": [
+            "Bumper Boat",
+            "Aqua Roller",
+            "Aqua Cycle",
+            "Kayak",
+            "Bubble Bike",
+            "Trampoline Park"
+          ],
+          "Kids": [
+            "Kids Bumper Boat",
+            "Aqua Roller",
+            "Kids Pedal Boat",
+            "Zorbing Ball",
+            "Trampoline Park"
+          ]
+        }
+      },
+      "duration": "Full day access",
+      "ageGroups": {
+        "Adults": "13+ years",
+        "Kids": "3-12 years"
+      },
+      "safety": "Life jackets provided for water activities",
+      "note": "Children under 3 enter free with a paying adult.",
+      "whatToBring": [
+        "A valid, government-issued photo ID for entry",
+        "Swimwear suitable for a family-friendly environment",
+        "Sun protection, including sunscreen and hats",
+        "Towels and a change of clothes for post-adventure comfort (or you can buy from merchandise)"
+      ],
+      "parkRules": [
+        "Follow lifeguard instructions and safety signage at all times",
+        "Glass containers and alcoholic beverages are strictly prohibited",
+        "Please use provided trash receptacles to keep the park clean",
+        "Pets are not allowed within the park premises, with the exception of service animals",
+        "Enter and exit at specified points"
+      ]
+    }
   }
 ]

@@ -9,6 +9,7 @@ const App = () => {
   const [showMobileCart, setShowMobileCart] = useState(false);
 
   const addToCart = (product, quantity, title) => {
+    console.log(product, quantity, title);
     let existingProductIndex = cart.findIndex((prod) => prod === product);
     if (existingProductIndex !== -1) {
       let updatedCart = [...cart];
@@ -29,15 +30,22 @@ const App = () => {
     <div className={`App ${showMobileCart ? "showCartOverLay" : ""}`}>
       <div className="main-container">
         <div className="card-container">
-          {data.map((item, key) => {
-            return <Card item={item} addToCart={addToCart} key={key} />;
-          })}
+          <Card data={data} addToCart={addToCart} />
         </div>
-        <div className={`shopping-cart-container ${showMobileCart ? "showMobileCart" : ""}`}>
+        <div
+          className={`shopping-cart-container ${
+            showMobileCart ? "showMobileCart" : ""
+          }`}
+        >
           <ShoppingCart cart={cart} removeFromCart={removeFromCart} />
         </div>
       </div>
-      <div className="mobileCartFixed" onClick={() => setShowMobileCart(!showMobileCart)}>Shopping Cart</div>
+      <div
+        className="mobileCartFixed"
+        onClick={() => setShowMobileCart(!showMobileCart)}
+      >
+        Shopping Cart
+      </div>
     </div>
   );
 };
